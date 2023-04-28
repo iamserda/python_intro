@@ -8,17 +8,17 @@ print(bool(1))  # True
 print(bool(str(1)))  # True
 print(bool(0))  # False
 print(bool(str(0)))  # True
-a = 1
-b = 2
-c = a > b
-d = b > a
+a = 1 # integer or counting numbers
+b = 2.0 # float or real numbers
+c = a > b # boolean
+d = b > a # boolean
 print("c is", c)  # False
 print("d is", d)  # True
 
 greet = "Global Hello!"
 
-
-def greet_function(greet):
+# def function_name(param:data_type)->return data_type:
+def greet_function(greet:str)->str:
     print(greet)  # uses "Global Hello" the received argument.
 
     # creates a local variable, greet. IT DOES NOT UPDATE or CHANGE outer greet variable.
@@ -26,10 +26,36 @@ def greet_function(greet):
     print(greet)
     return greet  # "Local Hello"
 
+def addition_with_default_args(a:int, b:int=3)->int:
+    return a + b
+
+# accepts 0 or more arguments
+def with_one_or_more_args(*args:tuple) -> tuple:
+    if not len(args):
+        return args, tuple()
+    doubled = tuple([x**2 for x in args])
+    return args, doubled
 
 # printing returned value from executing the function.
 print(greet_function(greet))
 print(greet)  # prints "Global Hello"
+
+answ = addition_with_default_args(1,2) # 1 + 2 = 3
+print(answ) # 3
+answ = addition_with_default_args(2) # 2 + 3 = 5
+print(answ) # 5
+
+# receiving more than one value from a function execution.
+# more than 1 arg. args are separated with a comma
+sent, rcvd = with_one_or_more_args(1,2,3,4,5) 
+print(f"sent: {sent} => received: {rcvd}")
+
+sent, rcvd = with_one_or_more_args(1) # one arg
+print(f"sent: {sent} => received: {rcvd}")
+
+sent, rcvd = with_one_or_more_args() # no arg
+print(f"sent: {sent} => received: {rcvd}")
+
 
 
 

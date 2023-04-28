@@ -1,7 +1,7 @@
 from cli_game import game, game_menu
 
 
-def start_game():
+def start_game()->None:
     greeting = game.greet_user()
     print(greeting)
 

@@ -1,7 +1,9 @@
-# DAILY TASK LIST APP by @iamserda
+# Python Playgrounds and Projects by [@iamserda](https://twitter.com/iamserda)
 
-## About Project
+## Project and Features
 
 ## Future Updates
 
-author: iamserda
+## Contributors Updates
+
+author: [@iamserda](https://twitter.com/iamserda)

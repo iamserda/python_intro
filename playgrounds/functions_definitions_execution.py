@@ -1,21 +1,4 @@
-print("Hello World")
-greeting = "Hi, welcome to"
-brand_name = "HealthFit"
-print(greeting, brand_name)
-print(bool(""))  # False
-print(bool("1"))  # True
-print(bool(1))  # True
-print(bool(str(1)))  # True
-print(bool(0))  # False
-print(bool(str(0)))  # True
-a = 1 # integer or counting numbers
-b = 2.0 # float or real numbers
-c = a > b # boolean
-d = b > a # boolean
-print("c is", c)  # False
-print("d is", d)  # True
-
-greet = "Global Hello!"
+greet = "Hello World!" # greet(scope: global)
 
 # def function_name(param:data_type)->return data_type:
 def greet_function(greet:str)->str:
@@ -55,10 +38,3 @@ print(f"sent: {sent} => received: {rcvd}")
 
 sent, rcvd = with_one_or_more_args() # no arg
 print(f"sent: {sent} => received: {rcvd}")
-
-
-
-
-
-
-#

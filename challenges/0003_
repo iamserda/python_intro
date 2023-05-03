@@ -1,4 +1,4 @@
-def add_ing_(_str: str = ""):
+def add_ing_or_ly(_str: str = ""):
     """problem:
         write a python program to add 'ing' at the end of a given string (length should be at least 3). if the given string already ends with 'ing' then add 'ly' instead. if the string length of the given string is less than 3, leave it unchanged. example:- sample string : 'abc' expected result : 'abcing' sample string : 'string' expected result : 'stringly'
 
@@ -7,7 +7,7 @@ def add_ing_(_str: str = ""):
     """
     try:
         if not isinstance(_str, str):
-            raise TypeError(f"Expected argument of type str, was provided{type(_str)}.")
+            raise TypeError(f"Expected argument of type str, was provided -> {type(_str)}.")
         
         _str_length = len(_str)
         if not _str_length or _str_length < 3:
@@ -23,59 +23,59 @@ def add_ing_(_str: str = ""):
 
 
 # Test
-def test_add_ing_():
+def test_add_ing_or_ly():
     # Test case 1: String length less than 3
-    result = add_ing_("")
+    result = add_ing_or_ly("")
     assert result == ""
 
     # Test case 2: String length equal to 3
-    result = add_ing_("abc")
+    result = add_ing_or_ly("abc")
     assert result == "abcing"
 
     # Test case 3: String ends with "ing"
-    result = add_ing_("string")
+    result = add_ing_or_ly("string")
     assert result == "stringly"
 
     # Test case 4: String does not end with "ing"
-    result = add_ing_("jump")
+    result = add_ing_or_ly("jump")
     assert result == "jumping"
 
     # Test case 5: Input argument is not a string
-    result = add_ing_(123)
+    result = add_ing_or_ly(123)
     assert result == -1
     
         # Test case 1: String length less than 3
-    result = add_ing_("")
+    result = add_ing_or_ly("")
     assert result == ""
 
     # Test case 2: String length equal to 3
-    result = add_ing_("abc")
+    result = add_ing_or_ly("abc")
     assert result == "abcing"
 
     # Test case 3: String ends with "ing"
-    result = add_ing_("string")
+    result = add_ing_or_ly("string")
     assert result == "stringly"
 
     # Test case 4: String does not end with "ing"
-    result = add_ing_("jump")
+    result = add_ing_or_ly("jump")
     assert result == "jumping"
 
     # Test case 5: Input argument is not a string
-    result = add_ing_(123)
+    result = add_ing_or_ly(123)
     assert result == -1
 
     # Test case 6: String length greater than 3 and ends with "ing"
-    result = add_ing_("coding")
+    result = add_ing_or_ly("coding")
     assert result == "codingly"
 
     # Test case 7: String length greater than 3 and does not end with "ing"
-    result = add_ing_("swim")
+    result = add_ing_or_ly("swim")
     assert result == "swiming"
 
     # Test case 8: String length greater than 3 and ends with "ING" (case insensitive)
-    result = add_ing_("RUNNING")
+    result = add_ing_or_ly("RUNNING")
     assert result == "RUNNINGLY"
 
     print("All test cases pass.")
 
-test_add_ing_()
+test_add_ing_or_ly()

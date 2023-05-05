@@ -1,1 +1,1 @@
-print_items_in_list
+ # os.system("clear") # clear screen at each run

@@ -140,11 +140,28 @@ def using_tuples():
 # using_tuples()
 
 
+
+
+# array -> collection of single data types.
+def using_cpython_array():
+    from array import array
+    _arr1 = array("I", [1,2,3,4,5])
+    _arr2 = array("I", [5,6,7,8,9])
+    print(f"_arr1: {_arr1} is of type {type(_arr1)}")
+    print(f"_arr2: {_arr2} is of type {type(_arr2)}")
+    _arr3 = _arr1 + _arr2
+    print(f"_arr3: {_arr3} is of type {type(_arr3)}")
+
+# using_cpython_array()
+
 def using_generators_func():
     """ gen_func()
     generators, cannot provide their current lengths.
-    generators are great when you do not need to preallocated or access by index."""
-    
+    generators are great when you do not need to preallocated or access by index.
+    # generator object: great for when we have a long list of data, 
+    # benefits is that it DOES NOT preallocated all the memory needed at once.
+    """
+
     gen_obj1 = (x for x in range(100))
     print("sizeof gen1:100:", getsizeof(gen_obj1), "bytes.")
     
@@ -165,22 +182,60 @@ def using_generators_func():
 
 # using_generators_func() # test func
 
-# array -> collection of single data types.
-def using_cpython_array():
-    from array import array
-    _arr1 = array("I", [1,2,3,4,5])
-    _arr2 = array("I", [5,6,7,8,9])
-    print(f"_arr1: {_arr1} is of type {type(_arr1)}")
-    print(f"_arr2: {_arr2} is of type {type(_arr2)}")
-    _arr3 = _arr1 + _arr2
-    print(f"_arr3: {_arr3} is of type {type(_arr3)}")
 
-# using_cpython_array()
-
-
-# generator object: great for when we have a long list of data, 
-# benefits is that it DOES NOT preallocated all the memory needed at once.
 
 # stacks -> LIFO data structure -> list() is good for this.
+def using_list_as_stacks():
+    try:
+        books_bin1 = []
+        user_borrowed = []
+        print("Welcome to 'Stacked Library': where you can only pick the most recently returned books!")
+        menu = """Menu: 
+            1.- Drop off a book? Enter '1'
+            2.- Pick up a book? Enter '2'
+            3.- exit app. Enter 'x'
+            4.- show my_account 'account'
+            5.- show lib-books 'available'
+            """
+        print(menu)
+
+        _continue_flag = True
+        
+        while _continue_flag:
+            choice = input(f"Enter your selection from the menu: '1' to drop-off, '2' to borrow, or 'x' to exit:\n$-: ").lower()
+            if choice == "x":
+                    break
+            if choice == "0":
+                print(menu)
+                continue
+            if choice == "1":
+                choice = input("$-: Enter book's title: ").lower()
+                if choice == "x":
+                    break
+                else: 
+                    books_bin1.append(choice.title())
+                    continue
+            elif choice == "2":
+                if len(books_bin1):
+                    user_borrowed.append(books_bin1.pop())
+                    print("account: ", user_borrowed)
+                    continue
+                else:
+                    print("We do not have any books on hand at the moment. Please try again later...")
+                    continue
+            elif choice == "account":
+                print(f"Account:\nOutstanding: {len(user_borrowed)}\n List:{user_borrowed}")
+            elif choice == "available":
+                print(f"Library:\n Available:{len(books_bin1)}\nOutstanding: {len(user_borrowed)}")
+            else:
+                raise ValueError(f"{choice} is not a valid option. Terminating the app... entered is not on the list of options.")
+        print("Terminating at user's request...")
+        return -1
+    except Exception as err:
+        print(f"Error: {err}")
+        print("Terminating...")
+        return -1    
+
+using_list_as_stacks()
 
 # queue() -> FIFO data structure. -> queue(list()) to create a empty queue

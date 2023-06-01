@@ -1,5 +1,4 @@
-from cli_game import game_intro
-
+from projects.cli_game import game_intro
 
 def greet_user() -> str:
     user_name = input("Enter your name:")

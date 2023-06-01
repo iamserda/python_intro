@@ -1,4 +1,5 @@
-from cli_game import game, game_menu
+from projects.cli_game import game, game_menu
+import os
 
 
 def start_game()->None:
@@ -7,5 +8,6 @@ def start_game()->None:
 
 
 if __name__ == "__main__":
+    os.system("clear")
     start_game()
     game_menu.read_command()
